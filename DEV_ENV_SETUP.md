@@ -72,6 +72,25 @@ The development container for APIcast uses a Docker volume mount to mount the lo
 
 It also means you can use your favorite IDE or editor develop your 3scale policy.
 
+### Stopping the development container
+Stopping the development environment container is a two step process. In the interactive Bash session simple press:
+
+```
+Ctrl + C
+```
+
+This exits the foreground bash shell, but the containers are still running. Execute the following make command to cleanly stop all containers:
+
+```shell
+$ make stop-development
+docker-compose -f docker-compose-devel.yml down
+Stopping apicast_build_0_development_1_802efce654d5 ... done
+Stopping apicast_build_0_redis_1_469bce65a85a       ... done
+Removing apicast_build_0_development_1_802efce654d5 ... done
+Removing apicast_build_0_redis_1_469bce65a85a       ... done
+Removing network apicast_build_0_default
+```
+
 ### Optional: setup an IDE for policy development
 The use of an IDE or text editor and more specifically which one is very personal so there is definitely no one size fits all here. But for those looking for a dedicated Lua IDE [ZeroBraneStudio](https://studio.zerobrane.com/) is a good choice.
 
